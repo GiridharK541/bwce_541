@@ -55,8 +55,8 @@ if [ "$(ls $APPDIR/tibco.home/bw*/*/ext/shared)"  ]; then
 fi
 
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/bwappnode
-sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
-sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
+find "$APPDIR" -type f -exec sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
+find "$APPDIR" -type f -exec sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
 
 if [[ ${BW_LOGLEVEL} ]]; then
 	echo "Before substitution...."
