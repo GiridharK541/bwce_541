@@ -49,14 +49,14 @@ export MALLOC_TRIM_THRESHOLD_=1024
 export MALLOC_MMAP_MAX_=65536
 export TIB_DTCP_EXTERNAL={$CF_INSTANCE_IP}{$PORT/$CF_INSTANCE_PORT}
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/startBWAppNode.sh
-sed -i.bak -e "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/config/appnode_config.ini
+sed -i.bak -e"s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/config/appnode_config.ini
 if [ "$(ls $APPDIR/tibco.home/bw*/*/ext/shared)"  ]; then 
-	sed -i -e "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/ext/shared/addons.link	
+	sed -i -e"s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/ext/shared/addons.link	
 fi
 
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/bwappnode
-sed -i -e "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
-sed -i -e "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
+sed -i -e"s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
+sed -i -e"s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
 
 if [[ ${BW_LOGLEVEL} ]]; then
 	echo "Before substitution...."
