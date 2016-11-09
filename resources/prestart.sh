@@ -2,6 +2,7 @@
 # Copyright (c) 2016, TIBCO Software Inc. All rights reserved.
 # You may not use this file except in compliance with the license 
 # terms contained in the TIBCO License.md file provided with this file.
+$APPDIR=/Users/GiridharKanikarapu/Desktop/tibco
 printBWTable ()
 {
 	echo "---------------> Product Inventory"
@@ -55,8 +56,8 @@ if [ "$(ls $APPDIR/tibco.home/bw*/*/ext/shared)"  ]; then
 fi
 
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/bwappnode
-find "$APPDIR" -type f -print0 | xargs -0 sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
-find "$APPDIR" -type f -print0 | xargs -0 sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
+sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
+sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
 
 if [[ ${BW_LOGLEVEL} ]]; then
 	echo "Before substitution...."
