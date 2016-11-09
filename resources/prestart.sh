@@ -91,4 +91,4 @@ if [[ ${BW_LOGLEVEL} ]]; then
 	cat $APPDIR/tmp/pcf.substvar
 fi
 printBWTable
-exec ./tibco.home/bw*/*/bin/startBWAppNode.sh
+exec /Users/GiridharKanikarapu/Desktop/tibco/tibco.home/bw*/*/bin/startBWAppNode.sh
