@@ -2,7 +2,6 @@
 # Copyright (c) 2016, TIBCO Software Inc. All rights reserved.
 # You may not use this file except in compliance with the license 
 # terms contained in the TIBCO License.md file provided with this file.
-$APPDIR=/Users/GiridharKanikarapu/Desktop/tibco
 printBWTable ()
 {
 	echo "---------------> Product Inventory"
@@ -50,14 +49,14 @@ export MALLOC_TRIM_THRESHOLD_=1024
 export MALLOC_MMAP_MAX_=65536
 export TIB_DTCP_EXTERNAL={$CF_INSTANCE_IP}{$PORT/$CF_INSTANCE_PORT}
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/startBWAppNode.sh
-find "$APPDIR" -type f -exec sed -i.bak "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/config/appnode_config.ini
+sed -i.bak '' "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/config/appnode_config.ini
 if [ "$(ls $APPDIR/tibco.home/bw*/*/ext/shared)"  ]; then 
-	sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/ext/shared/addons.link	
+	sed -i '' "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/ext/shared/addons.link	
 fi
 
 chmod 755 $APPDIR/tibco.home/bw*/*/bin/bwappnode
-sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
-sed -i "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
+sed -i '' "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode.tra	
+sed -i '' "s#_APPDIR_#$APPDIR#g" $APPDIR/tibco.home/bw*/*/bin/bwappnode
 
 if [[ ${BW_LOGLEVEL} ]]; then
 	echo "Before substitution...."
